@@ -1,16 +1,28 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Random Wheel Spinner Component
+
+This project includes a random wheel spinner component built entirely with [Tailwind CSS](https://tailwindcss.com/). It's a fun and interactive way to display random selections, and it can be easily integrated into various parts of your application.
+
+This component is part of a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+## Random Wheel Spinner
+
+The random wheel spinner is a visually appealing component that you can use to showcase skills, present options, or create engaging interactions with users. Utilizing Tailwind CSS, it's highly customizable and easy to fit into your existing design system.
+
+### Usage
+
+You can find the random wheel spinner component in the `src/components/wheel.js` file. Import it into your desired page and use it as a standard React component.
 
 ## Getting Started
 
 First, run the development server:
 
-```bash
+\```bash
 npm run dev
 # or
 yarn dev
 # or
 pnpm dev
-```
+\```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
