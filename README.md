@@ -1,4 +1,4 @@
-# Random Wheel Spinner Component
+# Magic Wheel Spinner Component
 
 This project includes a random wheel spinner component built entirely with [Tailwind CSS](https://tailwindcss.com/). It's a fun and interactive way to display random selections, and it can be easily integrated into various parts of your application.
 
