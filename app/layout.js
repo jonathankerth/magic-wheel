@@ -4,8 +4,8 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-	title: "Wheel of Fortune",
-	description: "Wheel selector",
+	title: "Magic Wheel",
+	description: "Random Number Selector",
 };
 
 export default function RootLayout({ children }) {
