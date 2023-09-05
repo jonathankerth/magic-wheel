@@ -10,7 +10,6 @@ export default function Home() {
 			<Head>
 				<title>Wheel of Fortune</title>
 			</Head>
-
 			<Wheel />
 		</div>
 	);
