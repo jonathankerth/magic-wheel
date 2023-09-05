@@ -2,11 +2,11 @@
 import { useState } from "react";
 
 export default function Wheel() {
-	const segments = 12;
+	const [segments, setSegments] = useState(12);
 	const [rotation, setRotation] = useState(0);
 	const [selectedNumber, setSelectedNumber] = useState(null);
 	const [spinning, setSpinning] = useState(false);
-	const spinDuration = 4000; // Spin time
+	const spinDuration = 1500; // Spin time
 
 	const spinWheel = () => {
 		setSpinning(true);
@@ -21,14 +21,32 @@ export default function Wheel() {
 	};
 
 	return (
-		<div className="flex flex-col items-center">
+		<div className="bg-black bg-opacity-40 rounded-lg p-4 mb-6 max-w-2xl items-center">
 			{/* Display Selected Number */}
 			{selectedNumber !== null && (
-				<div className="mb-4 p-2 bg-gray-200 text-black rounded border border-black">
+				<div className="mb-4 p-2 bg-gray-200 text-black text-lg text-bold rounded border border-black">
 					Selected Number: {selectedNumber + 1}
 				</div>
 			)}
-			<div className="relative w-64 h-64 rounded-full overflow-visible">
+
+			{/* Segment Selector */}
+			<div className="mb-4">
+				<label htmlFor="segments" className="mr-2 text-white">
+					Segments:
+				</label>
+				<select
+					id="segments"
+					value={segments}
+					onChange={(e) => setSegments(Number(e.target.value))}
+				>
+					{Array.from({ length: 20 }, (_, i) => i + 2).map((n) => (
+						<option key={n} value={n}>
+							{n}
+						</option>
+					))}
+				</select>
+			</div>
+			<div className="w-64 h-64 ml-2 rounded-full overflow-visible right-12">
 				<svg
 					className="relative transform transition-transform"
 					style={{
@@ -39,8 +57,8 @@ export default function Wheel() {
 							: "unset",
 					}}
 					viewBox="0 0 200 200"
-					width="200"
-					height="200"
+					width="250"
+					height="250"
 				>
 					{Array.from({ length: segments }, (_, index) => (
 						<g key={index}>
@@ -57,8 +75,8 @@ export default function Wheel() {
 								fill={
 									selectedNumber === index
 										? "gold"
-										: index % 2 === 0
-										? "red"
+										: (index + (segments % 2)) % 2 === 0
+										? "purple"
 										: "white"
 								}
 							/>
@@ -73,6 +91,8 @@ export default function Wheel() {
 								}
 								textAnchor="middle"
 								fill="black"
+								fontWeight="bold"
+								fontSize="14"
 								transform={`rotate(${(360 / segments) * index} ${
 									100 +
 									70 * Math.cos(((2 * Math.PI) / segments) * (index + 0.5))
@@ -87,12 +107,15 @@ export default function Wheel() {
 					))}
 				</svg>
 			</div>
-			<button
-				className="mt-4 p-2 bg-blue-500 text-white rounded"
-				onClick={spinWheel}
-			>
-				Spin the Wheel
-			</button>
+
+			<div className="flex flex-col justify-center items-center ">
+				<button
+					className="mt-2 p-2 bg-blue-500  text-white rounded mb-2"
+					onClick={spinWheel}
+				>
+					Spin the Wheel
+				</button>
+			</div>
 		</div>
 	);
 }
